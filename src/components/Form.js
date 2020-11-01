@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
+import { getYearDiff } from '../utils/Helper';
+
 const Field = styled.div`
 	display: flex;
 	margin-bottom: 1rem;
@@ -82,9 +84,15 @@ const Form = () => {
 
 		setError(false);
 
+		let baseResult = 2000;
+
 		/// Get the diff between years
+		const yearDiff = getYearDiff(year);
 
 		/// Substract 3% of cost for each year
+		baseResult -= (yearDiff * 3 * baseResult) / 100;
+
+		console.log(baseResult);
 
 		/// American car 15%
 		/// Asiatic car 5%
