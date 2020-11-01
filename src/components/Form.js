@@ -1,20 +1,43 @@
 import React from 'react';
+import styled from '@emotion/styled';
+
+const Field = styled.div`
+	display: flex;
+	margin-bottom: 1rem;
+	align-items: center;
+`;
+
+const Label = styled.label`
+	flex: 0 0 100px;
+`;
+
+const Select = styled.select`
+	display: block;
+	width: 100%;
+	padding: 1rem;
+	border: 1px solid #e1e1e1;
+	-webkit-appearance: none;
+`;
+
+const InputRadio = styled.input`
+	margin: 0 1rem;
+`;
 
 const Form = () => {
 	return (
 		<form>
-			<div>
-				<label>Marca</label>
-				<select name='marcacoche' id='marca'>
+			<Field>
+				<Label>Marca</Label>
+				<Select name='marcacoche' id='marca'>
 					<option value=''>-- Seleccione --</option>
 					<option value='americano'>Americano</option>
 					<option value='europeo'>Europeo</option>
 					<option value='asiatico'>Asiatico</option>
-				</select>
-			</div>
-			<div>
-				<label>Año</label>
-				<select name='aniocoche' id='anio'>
+				</Select>
+			</Field>
+			<Field>
+				<Label>Año</Label>
+				<Select name='aniocoche' id='anio'>
 					<option value=''>-- Seleccione --</option>
 					<option value='2021'>2021</option>
 					<option value='2020'>2020</option>
@@ -26,13 +49,13 @@ const Form = () => {
 					<option value='2014'>2014</option>
 					<option value='2013'>2013</option>
 					<option value='2012'>2012</option>
-				</select>
-			</div>
-			<div>
-				<label>Plan</label>
-				<input type='radio' name='plan' value='basico' /> Basico
-				<input type='radio' name='plan' value='completo' /> Completo
-			</div>
+				</Select>
+			</Field>
+			<Field>
+				<Label>Plan</Label>
+				<InputRadio type='radio' name='plan' value='basico' /> Basico
+				<InputRadio type='radio' name='plan' value='completo' /> Completo
+			</Field>
 			<button type='button'>Cotizar</button>
 		</form>
 	);
