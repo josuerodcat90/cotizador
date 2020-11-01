@@ -41,12 +41,23 @@ const Button = styled.button`
 	}
 `;
 
+const Error = styled.div`
+	background-color: red;
+	color: white;
+	padding: 1rem;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 2rem;
+`;
+
 const Form = () => {
 	const [data, setData] = useState({
 		brand: '',
 		year: '',
 		plan: '',
 	});
+
+	const [error, setError] = useState(false);
 
 	/// Extract the data from state
 	const { brand, year, plan } = data;
@@ -59,8 +70,35 @@ const Form = () => {
 		});
 	};
 
+	/// Handle the Form data submit
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		/// Validate blank fields
+		if (brand.trim() === '' || year.trim() === '' || plan.trim() === '') {
+			setError(true);
+			return;
+		}
+
+		setError(false);
+
+		/// Get the diff between years
+
+		/// Substract 3% of cost for each year
+
+		/// American car 15%
+		/// Asiatic car 5%
+		/// European car 30%
+
+		/// Basic plan 20%
+		/// Complete plan 50%
+
+		/// Total
+	};
+
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
+			{error ? <Error>Todos los campos son obligatorios</Error> : ''}
 			<Field>
 				<Label>Marca</Label>
 				<Select name='brand' value={brand} onChange={handleChange}>
@@ -105,7 +143,7 @@ const Form = () => {
 				/>{' '}
 				Completo
 			</Field>
-			<Button type='button'>Cotizar</Button>
+			<Button type='submit'>Cotizar</Button>
 		</form>
 	);
 };
