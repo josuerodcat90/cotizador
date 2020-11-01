@@ -23,3 +23,8 @@ export function costByBrand(brand) {
 
 	return increment;
 }
+
+/// Calculate total based on plan type
+export function costByPlan(plan) {
+	return plan === 'basico' ? 1.2 : 1.5;
+}
