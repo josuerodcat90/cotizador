@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
 const Field = styled.div`
@@ -42,11 +42,28 @@ const Button = styled.button`
 `;
 
 const Form = () => {
+	const [data, setData] = useState({
+		brand: '',
+		year: '',
+		plan: '',
+	});
+
+	/// Extract the data from state
+	const { brand, year, plan } = data;
+
+	/// Get data from Form and set to State
+	const handleChange = (e) => {
+		setData({
+			...data,
+			[e.target.name]: e.target.value,
+		});
+	};
+
 	return (
 		<form>
 			<Field>
 				<Label>Marca</Label>
-				<Select name='marcacoche' id='marca'>
+				<Select name='brand' value={brand} onChange={handleChange}>
 					<option value=''>-- Seleccione --</option>
 					<option value='americano'>Americano</option>
 					<option value='europeo'>Europeo</option>
@@ -55,7 +72,7 @@ const Form = () => {
 			</Field>
 			<Field>
 				<Label>Año</Label>
-				<Select name='aniocoche' id='anio'>
+				<Select name='year' value={year} onChange={handleChange}>
 					<option value=''>-- Seleccione --</option>
 					<option value='2021'>2021</option>
 					<option value='2020'>2020</option>
@@ -71,8 +88,22 @@ const Form = () => {
 			</Field>
 			<Field>
 				<Label>Plan</Label>
-				<InputRadio type='radio' name='plan' value='basico' /> Basico
-				<InputRadio type='radio' name='plan' value='completo' /> Completo
+				<InputRadio
+					type='radio'
+					name='plan'
+					value='basico'
+					checked={plan === 'basico'}
+					onChange={handleChange}
+				/>{' '}
+				Basico
+				<InputRadio
+					type='radio'
+					name='plan'
+					value='completo'
+					checked={plan === 'completo'}
+					onChange={handleChange}
+				/>{' '}
+				Completo
 			</Field>
 			<Button type='button'>Cotizar</Button>
 		</form>
