@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
-import { getYearDiff } from '../utils/Helper';
+import { getYearDiff, costByBrand } from '../utils/Helper';
 
 const Field = styled.div`
 	display: flex;
@@ -92,11 +92,11 @@ const Form = () => {
 		/// Substract 3% of cost for each year
 		baseResult -= (yearDiff * 3 * baseResult) / 100;
 
-		console.log(baseResult);
-
 		/// American car 15%
 		/// Asiatic car 5%
 		/// European car 30%
+		baseResult = costByBrand(brand) * baseResult;
+		console.log(baseResult);
 
 		/// Basic plan 20%
 		/// Complete plan 50%
