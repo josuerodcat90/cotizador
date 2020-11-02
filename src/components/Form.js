@@ -52,7 +52,7 @@ const Error = styled.div`
 	margin-bottom: 2rem;
 `;
 
-const Form = () => {
+const Form = ({ setResume }) => {
 	const [data, setData] = useState({
 		brand: '',
 		year: '',
@@ -102,9 +102,11 @@ const Form = () => {
 		const planIncrement = costByPlan(plan);
 		baseResult = parseFloat(planIncrement * baseResult).toFixed(2);
 
-		console.log(baseResult);
-
 		/// Total
+		setResume({
+			result: baseResult,
+			data,
+		});
 	};
 
 	return (

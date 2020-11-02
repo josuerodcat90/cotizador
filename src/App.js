@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
+import Resume from './components/Resume';
+// import Result from './components/Result';
 
 import styled from '@emotion/styled';
 import Form from './components/Form';
@@ -15,12 +17,23 @@ const FormContainer = styled.div`
 `;
 
 function App() {
+	const [resume, setResume] = useState({
+		Quotation: 0,
+		data: {
+			brand: '',
+			year: '',
+			plan: '',
+		},
+	});
+	const { data } = resume;
+
 	return (
 		<Container>
 			<Header title='Cotizador de Seguros' />
 
 			<FormContainer>
-				<Form />
+				<Form setResume={setResume} />
+				<Resume data={data} />
 			</FormContainer>
 		</Container>
 	);
