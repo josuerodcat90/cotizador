@@ -1,10 +1,10 @@
 /// Get the diff between years
-export function getYearDiff(year) {
+export const getYearDiff = (year) => {
 	return new Date().getFullYear() - year;
-}
+};
 
 /// Calculate total based on car brand
-export function costByBrand(brand) {
+export const costByBrand = (brand) => {
 	let increment;
 
 	switch (brand) {
@@ -22,9 +22,14 @@ export function costByBrand(brand) {
 	}
 
 	return increment;
-}
+};
 
 /// Calculate total based on plan type
-export function costByPlan(plan) {
+export const costByPlan = (plan) => {
 	return plan === 'basico' ? 1.2 : 1.5;
-}
+};
+
+/// Capitalize words
+export const capitalize = (text) => {
+	return text.charAt(0).toUpperCase() + text.slice(1);
+};
