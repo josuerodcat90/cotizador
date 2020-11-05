@@ -104,7 +104,7 @@ const Form = ({ setResume }) => {
 
 		/// Total
 		setResume({
-			result: baseResult,
+			quotation: baseResult,
 			data,
 		});
 	};

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
-import Resume from './components/Resume';
-// import Result from './components/Result';
-
 import styled from '@emotion/styled';
+
+import Header from './components/Header';
 import Form from './components/Form';
+import Resume from './components/Resume';
+import Result from './components/Result';
 
 const Container = styled.div`
 	max-width: 600px;
@@ -18,14 +18,14 @@ const FormContainer = styled.div`
 
 function App() {
 	const [resume, setResume] = useState({
-		Quotation: 0,
+		quotation: 0,
 		data: {
 			brand: '',
 			year: '',
 			plan: '',
 		},
 	});
-	const { data } = resume;
+	const { quotation, data } = resume;
 
 	return (
 		<Container>
@@ -34,6 +34,7 @@ function App() {
 			<FormContainer>
 				<Form setResume={setResume} />
 				<Resume data={data} />
+				<Result quotation={quotation} />
 			</FormContainer>
 		</Container>
 	);
