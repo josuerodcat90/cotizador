@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from '@emotion/styled';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const Message = styled.p`
 	background-color: rgb(127, 234, 227);
@@ -26,11 +27,24 @@ const Quotation = styled.p`
 `;
 
 const Result = ({ quotation }) => {
+	const nodeRef = useRef(null);
+
 	return quotation === 0 ? (
 		<Message>Please choose Brand, Year and Plan.</Message>
 	) : (
 		<QuotationContainer>
-			<Quotation>Precio a pagar: {`€. ${quotation}`}</Quotation>
+			<TransitionGroup className='quotation'>
+				<CSSTransition
+					nodeRef={nodeRef}
+					classNames='quotation'
+					key={quotation}
+					timeout={{ enter: 100, exit: 100 }}
+				>
+					<Quotation ref={nodeRef}>
+						Total a pagar: {`€. ${quotation}`}
+					</Quotation>
+				</CSSTransition>
+			</TransitionGroup>
 		</QuotationContainer>
 	);
 };
