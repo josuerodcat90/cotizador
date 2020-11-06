@@ -8,13 +8,13 @@ export const costByBrand = (brand) => {
 	let increment;
 
 	switch (brand) {
-		case 'europeo':
+		case 'european':
 			increment = 1.3;
 			break;
-		case 'americano':
+		case 'american':
 			increment = 1.15;
 			break;
-		case 'asiatico':
+		case 'asiatic':
 			increment = 1.05;
 			break;
 		default:
@@ -26,7 +26,7 @@ export const costByBrand = (brand) => {
 
 /// Calculate total based on plan type
 export const costByPlan = (plan) => {
-	return plan === 'basico' ? 1.2 : 1.5;
+	return plan === 'basic' ? 1.2 : 1.5;
 };
 
 /// Capitalize words

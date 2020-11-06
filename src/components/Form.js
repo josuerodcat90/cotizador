@@ -118,20 +118,20 @@ const Form = ({ setResume, setLoading }) => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			{error ? <Error>Todos los campos son obligatorios</Error> : ''}
+			{error ? <Error>All fields are required.</Error> : ''}
 			<Field>
-				<Label>Marca</Label>
+				<Label>Brand</Label>
 				<Select name='brand' value={brand} onChange={handleChange}>
-					<option value=''>-- Seleccione --</option>
-					<option value='americano'>Americano</option>
-					<option value='europeo'>Europeo</option>
-					<option value='asiatico'>Asiatico</option>
+					<option value=''>--- Select ---</option>
+					<option value='american'>American</option>
+					<option value='european'>European</option>
+					<option value='asiatic'>Asiatic</option>
 				</Select>
 			</Field>
 			<Field>
-				<Label>Año</Label>
+				<Label>Year</Label>
 				<Select name='year' value={year} onChange={handleChange}>
-					<option value=''>-- Seleccione --</option>
+					<option value=''>--- Select ---</option>
 					<option value='2021'>2021</option>
 					<option value='2020'>2020</option>
 					<option value='2019'>2019</option>
@@ -149,21 +149,21 @@ const Form = ({ setResume, setLoading }) => {
 				<InputRadio
 					type='radio'
 					name='plan'
-					value='basico'
-					checked={plan === 'basico'}
+					value='basic'
+					checked={plan === 'basic'}
 					onChange={handleChange}
 				/>{' '}
-				Basico
+				Basic
 				<InputRadio
 					type='radio'
 					name='plan'
-					value='completo'
-					checked={plan === 'completo'}
+					value='complete'
+					checked={plan === 'complete'}
 					onChange={handleChange}
 				/>{' '}
-				Completo
+				Complete
 			</Field>
-			<Button type='submit'>Cotizar</Button>
+			<Button type='submit'>Quotate</Button>
 		</form>
 	);
 };

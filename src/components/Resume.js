@@ -19,10 +19,10 @@ const Resume = ({ data }) => {
 
 	return (
 		<ResumeContainer>
-			<h2>Resumen de Cotizacion</h2>
+			<h2>Quotation Resume</h2>
 			<ul>
-				<li>Marca: {capitalize(brand)}</li>
-				<li>Año: {year}</li>
+				<li>Brand: {capitalize(brand)}</li>
+				<li>Year: {year}</li>
 				<li>Plan: {capitalize(plan)}</li>
 			</ul>
 		</ResumeContainer>

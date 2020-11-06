@@ -42,7 +42,7 @@ const Result = ({ quotation }) => {
 					timeout={{ enter: 100, exit: 100 }}
 				>
 					<Quotation ref={nodeRef}>
-						Total a pagar: {`€. ${quotation}`}
+						Insurance Cost: {`€. ${quotation}`}
 					</Quotation>
 				</CSSTransition>
 			</TransitionGroup>

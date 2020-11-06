@@ -33,7 +33,7 @@ function App() {
 
 	return (
 		<Container>
-			<Header title='Cotizador de Seguros' />
+			<Header title='Car Insurance Quotator' />
 
 			<FormContainer>
 				<Form setResume={setResume} setLoading={setLoading} />
