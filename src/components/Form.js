@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 import { getYearDiff, costByBrand, costByPlan } from '../utils/Helper';
 
@@ -109,7 +110,7 @@ const Form = ({ setResume, setLoading }) => {
 
 			/// Total
 			setResume({
-				quotation: baseResult,
+				quotation: Number(baseResult),
 				data,
 			});
 		}, 1500);
@@ -165,6 +166,11 @@ const Form = ({ setResume, setLoading }) => {
 			<Button type='submit'>Cotizar</Button>
 		</form>
 	);
+};
+
+Form.propTypes = {
+	setResume: PropTypes.func.isRequired,
+	setLoading: PropTypes.func.isRequired,
 };
 
 export default Form;
