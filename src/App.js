@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Form from './components/Form';
 import Resume from './components/Resume';
 import Result from './components/Result';
+import Spinner from './components/Spinner';
 
 const Container = styled.div`
 	max-width: 600px;
@@ -25,6 +26,9 @@ function App() {
 			plan: '',
 		},
 	});
+
+	const [loading, setLoading] = useState(false);
+
 	const { quotation, data } = resume;
 
 	return (
@@ -32,9 +36,14 @@ function App() {
 			<Header title='Cotizador de Seguros' />
 
 			<FormContainer>
-				<Form setResume={setResume} />
-				<Resume data={data} />
-				<Result quotation={quotation} />
+				<Form setResume={setResume} setLoading={setLoading} />
+				{loading ? (
+					<Spinner />
+				) : (
+					<>
+						<Resume data={data} /> <Result quotation={quotation} />
+					</>
+				)}
 			</FormContainer>
 		</Container>
 	);

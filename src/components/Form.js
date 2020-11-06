@@ -52,7 +52,7 @@ const Error = styled.div`
 	margin-bottom: 2rem;
 `;
 
-const Form = ({ setResume }) => {
+const Form = ({ setResume, setLoading }) => {
 	const [data, setData] = useState({
 		brand: '',
 		year: '',
@@ -102,11 +102,17 @@ const Form = ({ setResume }) => {
 		const planIncrement = costByPlan(plan);
 		baseResult = parseFloat(planIncrement * baseResult).toFixed(2);
 
-		/// Total
-		setResume({
-			quotation: baseResult,
-			data,
-		});
+		setLoading(true);
+
+		setTimeout(() => {
+			setLoading(false);
+
+			/// Total
+			setResume({
+				quotation: baseResult,
+				data,
+			});
+		}, 1500);
 	};
 
 	return (
